@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/noto-sans-thai";
+
+/* โทนสีตาม dataviz reference palette: กำหนดตามหน้าที่ แล้วสลับค่าในโหมดมืดที่เดียว */
+:root {
+  color-scheme: light;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+  --wash: rgba(11, 11, 11, 0.04);
+
+  --series-1: #2a78d6; /* blue */
+  --series-1-soft: #86b6ef; /* blue step 250: วันที่ไม่ได้เลือก */
+  --series-2: #eb6834; /* orange */
+  --series-3: #1baf7a; /* aqua */
+  --series-4: #eda100; /* yellow */
+
+  --good: #0ca30c;
+  --good-text: #006300;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --critical-text: #b42f2f;
+
+  --page: #f4f5f7;
+  --surface: #ffffff;
+  --accent-soft: #eaf2fd; /* blue step 100 จางลง ใช้เป็นพื้นของส่วนที่เน้น */
+  --glass: rgba(244, 245, 247, 0.72);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px -4px rgba(16, 24, 40, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --wash: rgba(255, 255, 255, 0.05);
+    --series-1: #3987e5;
+    --series-1-soft: #184f95;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --good-text: #0ca30c;
+    --critical-text: #e66767;
+    --page: #0b0b0c;
+    --surface: #161617;
+    --accent-soft: #14233a;
+    --glass: rgba(11, 11, 12, 0.72);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255, 255, 255, 0.1);
+  --wash: rgba(255, 255, 255, 0.05);
+  --series-1: #3987e5;
+  --series-1-soft: #184f95;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --good-text: #0ca30c;
+  --critical-text: #e66767;
+  --page: #0b0b0c;
+  --surface: #161617;
+  --accent-soft: #14233a;
+  --glass: rgba(11, 11, 12, 0.72);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", "Noto Sans Thai Variable", system-ui, -apple-system, sans-serif;
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-grid: var(--grid);
+  --color-line: var(--border);
+  --color-wash: var(--wash);
+  --color-s1: var(--series-1);
+  --color-accent-soft: var(--accent-soft);
+  --color-glass: var(--glass);
+  --shadow-card: var(--shadow);
+  --color-good: var(--good);
+  --color-good-text: var(--good-text);
+  --color-warning: var(--warning);
+  --color-critical: var(--critical);
+  --color-critical-text: var(--critical-text);
+}
+
+body {
+  background: var(--page);
+  font-feature-settings: "cv11", "ss01"; /* Inter: ตัวเลขและตัวอักษรแบบเรียบ */
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* การ์ดมาตรฐาน */
+@utility card {
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
